@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w!r4^@ooq0a3!0s17gz+=5jf4^fd_%s4$3wxv!=p@m--f31ims'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -126,17 +126,16 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True  # 允许所有来源（仅限开发环境！）
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500",  # 你的前端地址
-    "https://127.0.0.1:5500",  # 你的前端地址
+    "https://webgishtml-y1oxpe6m49.edgeone.site/map.html",
 ]
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:5500", "https://127.0.0.1:5500"]  # 添加前端源
+CSRF_TRUSTED_ORIGINS = ["https://webgishtml-y1oxpe6m49.edgeone.site/map.html",]  # 添加前端源
 
-CSRF_COOKIE_SECURE = False  # True时Cookie仅通过https传输。且CSRF_COOKIE_SAMESITE = 'None'时，必须以https传输
+CSRF_COOKIE_SECURE = True  # True时Cookie仅通过https传输。且CSRF_COOKIE_SAMESITE = 'None'时，必须以https传输
 # 'lax' 当跨域请求时，get请求下后端会正常给前端发送cookie，其他请求后端不会发送cookie
 # 'None' 无论是否跨域，任何请求后端都会给前端发送cookie
-CSRF_COOKIE_SAMESITE = 'lax'
+CSRF_COOKIE_SAMESITE = 'None'
 
-SECURE_SSL_REDIRECT = False  # 所有请求重定向到 HTTPS
+SECURE_SSL_REDIRECT = True  # 所有请求重定向到 HTTPS
 
 # settings.py
 CORS_ALLOW_HEADERS = [
