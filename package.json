@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-sonarjs": "^3.0.2"
+  },
+  "dependencies": {
+    "d3-delaunay": "^6.0.4",
+    "geotiff": "^2.1.3"
+  }
+}
